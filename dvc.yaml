@@ -2,13 +2,21 @@ stages:
   get_data:
     cmd: python3 src/get_data.py
     deps:
-    - src/get_data.py
+      - src/get_data.py
     outs:
-    - smsspamcollection
+      - smsspamcollection
 
   preprocess:
-    cmd: python3 src/text_preprocessing.py
+    cmd: python src/text_preprocessing.py
     deps:
-    - src/text_preprocessing.py
+      - src/text_preprocessing.py
     outs:
-    - output
+      - output/preprocessed_data.joblib
+      - output/preprocessor.joblib
+
+  train:
+    cmd: python src/text_classification.py
+    deps:
+      - src/text_classification.py
+    outs:
+      - output/model.joblib

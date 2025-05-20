@@ -29,3 +29,15 @@ stages:
       hash: md5
       md5: 83a6cbde454b42ee4be7cbfe54ebd638
       size: 128457
+  train:
+    cmd: python src/text_classification.py
+    deps:
+    - path: src/text_classification.py
+      hash: md5
+      md5: 1de7485a84a1674f51070211dc0b593f
+      size: 3496
+    outs:
+    - path: output/model.joblib
+      hash: md5
+      md5: c51b8ec74ac5f1ddb386f1cad40fd0cb
+      size: 10841
